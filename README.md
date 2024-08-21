@@ -8,3 +8,13 @@ in Indonesia.
 
 This package uses BeautifulSoup4 and Request to produce output in JSON form and ready
 to be used in web application services.
+
+## How to use
+import recent_earthquake2
+
+if __name__ == '__main__':
+    result = recent_earthquake2.data_extraction()
+    recent_earthquake2.show_data(result)
+
+## Author
+rynderi
