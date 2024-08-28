@@ -4,9 +4,10 @@ import bs4
 
 class LatestEarthquake:
 
-    def __init__(self):
-        self.description = 'to get the latest earthquake information from bmkg.go.id'
+    def __init__(self, url):
+        self.description = 'To get the latest earthquake information from bmkg.go.id'
         self.result = None
+        self.url = url
 
     def data_extraction(self):
         """
@@ -20,7 +21,7 @@ class LatestEarthquake:
         :return:
         """
         try:
-            content = requests.get('https://bmkg.go.id/')
+            content = requests.get(self.url)
         except Exception:
             return None
 
@@ -87,8 +88,8 @@ class LatestEarthquake:
 
 
 if __name__ == '__main__':
-    indonesia_earthquake = LatestEarthquake()
-    print('Package description is', indonesia_earthquake.description)
+    indonesia_earthquake = LatestEarthquake('https://bmkg.go.id/')
+    print('Package description:', indonesia_earthquake.description)
     indonesia_earthquake.run()
     # indonesia_earthquake.data_extraction()
     # indonesia_earthquake.show_data()
