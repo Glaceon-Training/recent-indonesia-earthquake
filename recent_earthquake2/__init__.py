@@ -64,7 +64,6 @@ def data_extraction():
         return None
 
 
-
 def show_data(result):
     if result is None:
         print("There are no new earthquake detected")
