@@ -85,6 +85,7 @@ class LatestEarthquake:
         self.data_extraction()
         self.show_data()
 
+
 if __name__ == '__main__':
     indonesia_earthquake = LatestEarthquake()
     print('Package description is', indonesia_earthquake.description)
