@@ -14,8 +14,13 @@ to be used in web application services.
 import recent_earthquake2
 
 if __name__ == '__main__':
-    result = recent_earthquake2.data_extraction()
-    recent_earthquake2.show_data(result)
+    indonesia_earthquake = LatestEarthquake('https://bmkg.go.id/')
+    indonesia_earthquake.show_description()
+    indonesia_earthquake.run()
+
+    indonesia_flood = LatestFlood('Now seeking for Bob the Builder')
+    indonesia_flood.show_description()
+    indonesia_flood.run()
 ```
 
 ## Author

@@ -2,12 +2,34 @@ import requests
 import bs4
 
 
-class LatestEarthquake:
-
-    def __init__(self, url):
-        self.description = 'To get the latest earthquake information from bmkg.go.id'
+class Disasters:
+    def __init__(self, url, description):
+        self.description = description  # 'To get the latest earthquake information from bmkg.go.id'
         self.result = None
         self.url = url
+
+    def show_description(self):
+        print('\nPackage description:', self.description)
+
+    def data_extraction(self):
+        pass
+
+    def show_data(self):
+        pass
+
+    def run(self):
+        self.data_extraction()
+        self.show_data()
+
+
+class LatestFlood(Disasters):
+    def __init__(self, url):
+        super(LatestFlood, self).__init__(url, 'We are asking Bob the Builder to get it done')
+
+
+class LatestEarthquake(Disasters):
+    def __init__(self, url):
+        super(LatestEarthquake, self).__init__(url,'To get the latest earthquake information from bmkg.go.id')
 
     def data_extraction(self):
         """
@@ -82,14 +104,15 @@ class LatestEarthquake:
         print(f"Epicentre: {self.result['epicentre']}")
         print(f"Mercalli Scale: {self.result['mercalli_scale']}")
 
-    def run(self):
-        self.data_extraction()
-        self.show_data()
-
 
 if __name__ == '__main__':
     indonesia_earthquake = LatestEarthquake('https://bmkg.go.id/')
-    print('Package description:', indonesia_earthquake.description)
+    indonesia_earthquake.show_description()
     indonesia_earthquake.run()
+
+    indonesia_flood = LatestFlood('Now seeking for Bob the Builder')
+    indonesia_flood.show_description()
+    indonesia_flood.run()
+
     # indonesia_earthquake.data_extraction()
     # indonesia_earthquake.show_data()
