@@ -1,6 +1,7 @@
 import requests
 import bs4
 
+description = 'Getting the latest earthquake information from bmkg.go.id'
 
 def data_extraction():
     """
@@ -34,7 +35,7 @@ def data_extraction():
         ls = None
         bt = None
         epicentre = None
-        tsunami_alert = None
+        mercalli_scale = None
         for eq in scrap:
             if i == 1:
                 magnitude = eq.text
@@ -47,7 +48,7 @@ def data_extraction():
             elif i == 4:
                 epicentre = eq.text
             elif i == 5:
-                tsunami_alert = eq.text
+                mercalli_scale = eq.text
             i = i + 1
 
         extract = dict()
@@ -57,10 +58,9 @@ def data_extraction():
         extract['depth'] = depth
         extract['location'] = {'ls': ls, 'bt': bt}
         extract['epicentre'] = epicentre
-        extract['tsunami_alert'] = tsunami_alert
+        extract['mercalli_scale'] = mercalli_scale
         return extract
     else:
-        print(content.status_code)
         return None
 
 
@@ -75,7 +75,7 @@ def show_data(result):
     print(f"Depth (in km): {result['depth']}")
     print(f"Location: LS = {result['location']['ls']}, BT = {result['location']['bt']}")
     print(f"Epicentre: {result['epicentre']}")
-    print(f"Tsunami Alert: {result['tsunami_alert']}")
+    print(f"Mercalli Scale: {result['mercalli_scale']}")
 
 
 if __name__ == '__main__':
