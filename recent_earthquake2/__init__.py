@@ -91,5 +91,3 @@ if __name__ == '__main__':
     indonesia_earthquake.run()
     # indonesia_earthquake.data_extraction()
     # indonesia_earthquake.show_data()
-
-
