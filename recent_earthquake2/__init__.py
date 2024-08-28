@@ -29,7 +29,7 @@ class LatestFlood(Disasters):
 
 class LatestEarthquake(Disasters):
     def __init__(self, url):
-        super(LatestEarthquake, self).__init__(url,'To get the latest earthquake information from bmkg.go.id')
+        super(LatestEarthquake, self).__init__(url, 'To get the latest earthquake information from bmkg.go.id')
 
     def data_extraction(self):
         """
