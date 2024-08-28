@@ -1,5 +1,5 @@
 import requests
-from bs4 import BeautifulSoup
+import bs4
 
 
 def data_extraction():
@@ -20,7 +20,7 @@ def data_extraction():
 
     if content.status_code == 200:
 
-        soup = BeautifulSoup(content.text, 'html.parser')
+        soup = bs4.BeautifulSoup(content.text, 'html.parser')
 
         date_time = soup.find('span', {'class': 'waktu'})
         date = date_time.text.split(', ')[0]
