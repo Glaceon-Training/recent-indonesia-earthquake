@@ -1,7 +1,7 @@
 import requests
 import bs4
 
-description = 'Getting the latest earthquake information from bmkg.go.id'
+description = 'to get the latest earthquake information from bmkg.go.id'
 
 def data_extraction():
     """
@@ -80,5 +80,6 @@ def show_data(result):
 
 
 if __name__ == '__main__':
+    print('Package description is', description)
     result = data_extraction()
     show_data(result)
