@@ -24,7 +24,7 @@ class Disasters:
 
 class LatestFlood(Disasters):
     def __init__(self, url):
-        super(LatestFlood, self).__init__(url, 'We are asking Bob the Builder to get it done')
+        super(LatestFlood, self).__init__(url, 'We are asking Bob the Builder to get Flood app done')
 
 
 class LatestEarthquake(Disasters):
